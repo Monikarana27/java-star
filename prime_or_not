@@ -1,0 +1,32 @@
+package codewithmonika;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter number: ");
+        int num = sc.nextInt();
+
+        boolean isPrime = true; // Declare isPrime here so it's accessible everywhere
+
+        if (num <= 1) {
+            isPrime = false; // Numbers <= 1 are not prime
+        } else {
+            // Check divisibility from 2 to the square root of num
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false; // If divisible, set isPrime to false
+                    break; // Exit the loop early
+                }
+            }
+        }
+
+        // Output the result
+        if (isPrime) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+    }
+}
